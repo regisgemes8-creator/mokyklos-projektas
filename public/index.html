@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10110f">
+  <meta name="description" content="Mandagiai padeda pasakyti ne — aiškiai, pagarbiai ir be nejaukaus pasiaiškinimo. Sukurk atsakymą su AI.">
+  <title>Mandagiai — pasakyk „ne“ gražiau</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Mandagiai pradžia">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+        <span>mandagiai<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Pagrindinė navigacija">
+        <a href="#kaip-veikia">Kaip veikia</a>
+        <a href="#pavyzdziai">Pavyzdžiai</a>
+        <a href="#generatorius">Išbandyti AI</a>
+      </nav>
+      <a class="nav-cta" href="#generatorius">Sukurti atsakymą <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero section-wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot"></span> DAUGIAU RIBŲ. MAŽIAU KALTĖS.</div>
+          <h1>Pasakyk<br>„ne“ <span class="headline-highlight">gražiau.</span></h1>
+          <p class="hero-description">AI, kuris padeda atsisakyti aiškiai, šiltai ir be to nejaukaus jausmo, kad kažką nuvylei.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#generatorius">Sukurti mandagų „ne“ <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#pavyzdziai">Pamatyti pavyzdį <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-note"><span class="note-check">✓</span> Tavo ribos svarbios. Ir nereikia ilgo pasiteisinimo.</div>
+        </div>
+
+        <div class="hero-visual" aria-label="Mandagaus atsakymo pavyzdys">
+          <div class="visual-orbit orbit-one"></div>
+          <div class="visual-orbit orbit-two"></div>
+          <div class="message-window">
+            <div class="window-top"><div class="window-dots"><i></i><i></i><i></i></div><span>žinutės perrašymas</span><span class="window-menu">···</span></div>
+            <div class="message-content">
+              <div class="message-label">GAUTAS PRAŠYMAS</div>
+              <div class="incoming-message">„Gal gali šį savaitgalį padėti man su projektu? Labai praverstų.“</div>
+              <div class="ai-divider"><span class="sparkle">✳</span><span>MANDAGIAI AI</span><span class="divider-line"></span></div>
+              <div class="outgoing-message">Ačiū, kad pagalvojai apie mane! Šį savaitgalį negalėsiu prisidėti, bet labai tikiuosi, kad projektas puikiai pavyks. ♡</div>
+              <div class="message-footer"><span class="tiny-check">✓</span> Aišku. Šilta. Be kaltės.</div>
+            </div>
+          </div>
+          <div class="floating-tag tag-top"><span>✳</span> Tavo tonas, tavo ribos</div>
+          <div class="floating-tag tag-bottom"><span class="tiny-spark">✦</span> Mažiau aiškinimosi</div>
+          <span class="decor-star star-a">✳</span><span class="decor-star star-b">✦</span>
+        </div>
+      </section>
+
+      <section class="trust-strip section-wrap" aria-label="Produkto principai">
+        <span>NEJĖGAUTI NEREIKIA</span><span class="strip-separator">✳</span><span>NEGALIMA — IRGI ATSAKYMAS</span><span class="strip-separator">✳</span><span>MANDAGU NEREIŠKIA „TAIP“</span>
+      </section>
+
+      <section class="generator-section section-wrap" id="generatorius">
+        <div class="section-heading">
+          <div class="eyebrow"><span class="eyebrow-number">01</span> TAVO SITUACIJA</div>
+          <h2>Žodžiai, kai jų<br><span class="muted-heading">trūksta.</span></h2>
+          <p>Aprašyk, ko tavęs prašo. Pasiūlysime kelis variantus, kad galėtum pasirinkti sau tinkamiausią.</p>
+        </div>
+
+        <div class="generator-card">
+          <div class="generator-topline"><div class="generator-title"><span class="ai-icon">✳</span><div><strong>Atsakymo kūrėjas</strong><small>Trumpai papasakok situaciją</small></div></div><div id="mode-badge" class="mode-badge"><span class="status-dot"></span> Tikrinama…</div></div>
+          <form id="generator-form">
+            <label class="field-label" for="request">Ko tavęs prašo? <span class="required-mark">*</span></label>
+            <textarea id="request" name="request" rows="3" maxlength="1200" required placeholder="Pvz., draugas prašo paskolinti pinigų, bet šįkart nenoriu."></textarea>
+            <div class="field-row">
+              <div class="field-group"><label class="field-label" for="relationship">Kam atsakai?</label><select id="relationship" name="relationship"><option>Draugui / draugei</option><option>Kolegui</option><option>Vadovui</option><option>Šeimos nariui</option><option>Pažįstamam</option><option>Kita</option></select></div>
+              <div class="field-group"><label class="field-label" for="channel">Kur atsakysi?</label><select id="channel" name="channel"><option>Žinutė</option><option>El. laiškas</option><option>Gyvas pokalbis</option></select></div>
+            </div>
+            <fieldset class="tone-fieldset"><legend class="field-label">Kokio tono norėtum?</legend><div class="tone-options">
+              <label class="tone-option"><input type="radio" name="tone" value="Šiltas"><span class="tone-emoji">☀</span><span><strong>Šilto</strong><small>Švelnaus ir draugiško</small></span></label>
+              <label class="tone-option selected"><input type="radio" name="tone" value="Subalansuotas" checked><span class="tone-emoji">◒</span><span><strong>Subalansuoto</strong><small>Natūralaus ir aiškaus</small></span></label>
+              <label class="tone-option"><input type="radio" name="tone" value="Tvirtas, bet mandagus"><span class="tone-emoji">✦</span><span><strong>Tvirto</strong><small>Mandagaus, su ribomis</small></span></label>
+            </div></fieldset>
+            <label class="field-label" for="reason">Ar nori pridėti priežastį? <span class="optional-label">NEBŪTINA</span></label>
+            <input id="reason" name="reason" type="text" maxlength="500" placeholder="Pvz., turiu kitų planų arba šiuo metu neturiu laiko.">
+            <button id="generate-button" class="button button-primary generate-button" type="submit"><span class="button-text">Sukurti atsakymus</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+            <p class="privacy-note"><span aria-hidden="true">♧</span> Nesidalink slaptažodžiais ar kita jautria informacija. Tavo API raktas lieka serveryje.</p>
+          </form>
+          <div id="results" class="results hidden" aria-live="polite">
+            <div class="results-heading"><div><div class="eyebrow"><span class="live-dot"></span> PARUOŠTA TAU</div><h3>Trys būdai pasakyti „ne“.</h3></div><button type="button" id="edit-button" class="subtle-button">← Redaguoti situaciją</button></div>
+            <div class="result-grid">
+              <article class="result-card result-gentle"><div class="result-card-top"><span class="result-icon">☀</span><span class="result-label">ŠILTAS</span></div><p id="result-gentle"></p><button class="copy-button" data-copy="gentle" type="button">Kopijuoti <span>↗</span></button></article>
+              <article class="result-card result-balanced"><div class="result-card-top"><span class="result-icon">◒</span><span class="result-label">SUBALANSUOTAS</span></div><p id="result-balanced"></p><button class="copy-button" data-copy="balanced" type="button">Kopijuoti <span>↗</span></button></article>
+              <article class="result-card result-firm"><div class="result-card-top"><span class="result-icon">✦</span><span class="result-label">TVIRTAS, BET MANDAGUS</span></div><p id="result-firm"></p><button class="copy-button" data-copy="firm" type="button">Kopijuoti <span>↗</span></button></article>
+            </div>
+            <div class="kind-reminder"><span class="reminder-icon">✳</span><div><strong>Mažas priminimas</strong><p id="result-tip">Gali būti malonus ir kartu išsaugoti savo ribas.</p></div></div>
+            <p id="result-mode-note" class="result-mode-note"></p>
+          </div>
+          <div id="error-message" class="error-message hidden" role="alert"></div>
+        </div>
+      </section>
+
+      <section class="examples-section section-wrap" id="pavyzdziai">
+        <div class="section-heading section-heading-inline"><div><div class="eyebrow"><span class="eyebrow-number">02</span> KASDIENYBĖS SITUACIJOS</div><h2>Pažįstama? <span class="muted-heading">Suprantame.</span></h2></div><p>Nuo papildomo darbo iki planų, kurių tiesiog nenori. Pradėk nuo pavyzdžio.</p></div>
+        <div class="example-grid">
+          <button type="button" class="example-card" data-example="work"><span class="example-icon icon-lilac">↗</span><span class="example-category">DARBAS</span><strong>Dar viena užduotis</strong><span class="example-description">Kai jau turi pilną darbų sąrašą.</span><span class="example-link">Naudoti pavyzdį <b>↗</b></span></button>
+          <button type="button" class="example-card" data-example="plans"><span class="example-icon icon-yellow">☼</span><span class="example-category">DRAUGAI</span><strong>Planai savaitgaliui</strong><span class="example-description">Kai norisi ramaus vakaro sau.</span><span class="example-link">Naudoti pavyzdį <b>↗</b></span></button>
+          <button type="button" class="example-card" data-example="favor"><span class="example-icon icon-green">♡</span><span class="example-category">PASLAUGOS</span><strong>Prašymas paslaugai</strong><span class="example-description">Kai norisi padėti, bet šįkart negali.</span><span class="example-link">Naudoti pavyzdį <b>↗</b></span></button>
+        </div>
+      </section>
+
+      <section class="how-section section-wrap" id="kaip-veikia">
+        <div class="how-intro"><div class="eyebrow"><span class="eyebrow-number">03</span> PAPRASTA, KAIP DU KART DU</div><h2>Trys žingsniai.<br><span class="muted-heading">Daugiau ramybės.</span></h2></div>
+        <div class="steps-list"><article class="step"><span class="step-number">01</span><div><h3>Papasakok, kas vyksta</h3><p>Įrašyk prašymą ir kam turi atsakyti. Nebūtina pasakoti visos istorijos.</p></div><span class="step-symbol">↘</span></article><article class="step"><span class="step-number">02</span><div><h3>Pasirink savo toną</h3><p>Šiltas, subalansuotas ar tvirtesnis. Tu geriausiai žinai, kaip nori skambėti.</p></div><span class="step-symbol">↘</span></article><article class="step"><span class="step-number">03</span><div><h3>Pasirink ir išsiųsk</h3><p>Palygink variantus, pakoreguok juos pagal save ir kopijuok vienu paspaudimu.</p></div><span class="step-symbol">✓</span></article></div>
+      </section>
+
+      <section class="closing-cta section-wrap"><div class="closing-decoration">✳</div><div class="eyebrow">TAI TAVO PRIMINIMAS</div><h2>„Ne“ taip pat<br>yra <span>pilnas sakinys.</span></h2><p>Mandagumas prasideda nuo pagarbos. Įskaitant pagarbą sau.</p><a class="button button-dark" href="#generatorius">Rasti tinkamus žodžius <span aria-hidden="true">↗</span></a></section>
+    </main>
+
+    <footer class="footer section-wrap"><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>mandagiai<span class="brand-dot">.</span></span></a><span class="footer-copy">Sukurta tam, kad „ne“ skambėtų kaip tu.</span><a class="footer-top" href="#top">Į viršų ↑</a><span class="footer-year">© <span id="year"></span> Mandagiai</span></footer>
+  </div>
+</body>
+</html>
