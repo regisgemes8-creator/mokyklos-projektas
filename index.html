@@ -37,8 +37,6 @@
         <button class="go" id="go" type="button">Parašyk žinutę</button>
         <p class="note" id="note" aria-live="polite"></p>
         <div class="thread" id="thread" aria-live="polite" hidden>
-          
-          
           <div class="who">Švelnus Ne</div>
           <div class="bubble ai" id="a"></div>
           <button class="copy" id="copy" type="button" hidden>Kopijuoti žinutę</button>
@@ -102,13 +100,10 @@
 </footer>
 
 <script>
-// Švelnus Ne – puslapio logika. AI užklausa eina tiesiai į OpenAI iš naršyklės.
 (function () {
-  // =========================================================
-  // 1. ĮKELK SAVO DUOMENIS ČIA (tarp kabučių):
-  var OPENAI_API_KEY = "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"; // <- Įklijuok savo API raktą
-  var OPENAI_MODEL = "gpt-6-luna";   // <- Modelis (gpt-4o-mini yra pigus ir geras)
-  // =========================================================
+  // --- JŪSŲ CLOUDFLARE WORKER ADRESAS ---
+  var WORKER_URL = "https://jolly-paper-51ad.regisgemes8.workers.dev/";
+  // --------------------------------------
 
   var TONES = ["Švelniai", "Tiesiai", "Su šypsena"];
   var EXAMPLES = [
@@ -161,14 +156,14 @@
     var toneText = TONES[tIndex];
     if (tIndex === 2) toneText += " (jei situacija jautri, humoro nenaudok ir rašyk šiltai)";
     
-    var res = await fetch("https://api.openai.com/v1/chat/completions", {
+    // Siunčiame užklausą į jūsų Cloudflare Worker
+    var res = await fetch(WORKER_URL, {
       method: "POST",
       headers: { 
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + OPENAI_API_KEY
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: OPENAI_MODEL,
+        model: "gpt-4o-mini",
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
           { role: "user", content: "Tonas: " + toneText + "\n\nSituacija:\n\"\"\"\n" + situation + "\n\"\"\"\n\nParašyk žinutę." }
@@ -179,7 +174,7 @@
     
     var data = await res.json().catch(function () { return {}; });
     if (!res.ok) { 
-      var errMsg = data.error && data.error.message ? data.error.message : "Klaida";
+      var errMsg = data.error ? (data.error.message || data.error) : "Klaida";
       var e = new Error(errMsg); 
       e.status = res.status; 
       throw e; 
@@ -200,9 +195,6 @@
   go.onclick = async function () {
     var text = sit.value.trim();
     if (!text) { note.textContent = "Aprašyk situaciją, kad galėčiau parašyti žinutę."; sit.focus(); return; }
-    if (!OPENAI_API_KEY || OPENAI_API_KEY === "sk-proj-...") {
-      note.textContent = "Klaida: Neužpildytas API raktas HTML faile."; return;
-    }
     
     if (ctrl) ctrl.abort();
     ctrl = new AbortController();
@@ -217,9 +209,7 @@
     } catch (err) {
       if (err.name === "AbortError") return;
       thread.hidden = true;
-      if (err.status === 401) note.textContent = "Neteisingas API raktas (401).";
-      else if (err.status === 429) note.textContent = "Baigėsi limitas arba nėra apmokėjimo (429).";
-      else note.textContent = "Klaida: " + err.message;
+      note.textContent = "Klaida: " + (err.message || "Nepavyko susisiekti su serveriu.");
     } finally { go.disabled = false; }
   };
 
